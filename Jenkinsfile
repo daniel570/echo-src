@@ -15,7 +15,7 @@ pipeline {
               branch 'master'
           }
           steps{
-             sh '/home/danielharsheffer/google-cloud-sdk/bin/gcloud docker -- push gcr.io/develeap/echoapp:1.0."${BUILD_NUMBER}"'
+             sh 'sudo -S /home/danielharsheffer/google-cloud-sdk/bin/gcloud docker -- push gcr.io/develeap/echoapp:1.0."${BUILD_NUMBER}"'
              sh 'echo deploy'
           }
       }
