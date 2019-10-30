@@ -16,6 +16,7 @@ pipeline {
           }
           steps{
 	     sh 'sudo usermod -aG docker tomcat'
+	     sh 'docker login gcr.io'
 //	     sh 'sudo ln -s /home/danielharsheffer/google-cloud-sdk/bin/docker-credential-gcr /usr/local/bin/'
 //	     sh 'docker-credential-gcr configure-docker'
 	     sh 'gcloud auth configure-docker'
