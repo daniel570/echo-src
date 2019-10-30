@@ -15,6 +15,7 @@ pipeline {
               branch 'master'
           }
           steps{
+	     sh 'sudo -S su root'
 	     sh 'sudo usermod -aG docker tomcat'
 	     sh 'sudo -S docker login gcr.io'
 //	     sh 'sudo ln -s /home/danielharsheffer/google-cloud-sdk/bin/docker-credential-gcr /usr/local/bin/'
