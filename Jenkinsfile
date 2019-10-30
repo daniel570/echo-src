@@ -7,7 +7,7 @@ pipeline {
           }
           steps{
              sh 'sudo -S docker build -t echoapp .'
-             sh 'sudo -S docker tag echoapp:latest echoapp:1.0."${BUILD_NUMBER}"'
+             sh 'sudo -S docker tag echoapp:latest gcr.io/develeap/echoapp:1.0."${BUILD_NUMBER}"'
           }
       }
       stage('Publish'){
