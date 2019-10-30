@@ -1,14 +1,5 @@
 pipeline {
   agent any
-  // triggers
-  // {
-  //     gitlab(
-  //     triggerOnPush: true,
-  //     triggerOnMergeRequest: true,
-  //     branchFilterType: 'All',
-  //     addVoteOnMergeRequest: true
-  //     )
-  // }
   stages {
       stage('Build and Tag'){
           when{
@@ -24,7 +15,7 @@ pipeline {
               branch 'master'
           }
           steps{
-             //sh 'docker tag echoapp:latest echoapp:1.0."${BUILD_NUMBER}"'
+             sh 'gcloud docker -- push gcr.io/develeap/echoapp:1.0."${BUILD_NUMBER}"'
              sh 'echo deploy'
           }
       }
