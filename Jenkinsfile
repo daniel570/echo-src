@@ -12,11 +12,10 @@ pipeline {
   stages {
       stage('Build and Tag'){
           steps{
-	   sh 'echo $(whoami)'
            sh '''
-               docker build -t echoapp .
+               sudo -S docker build -t echoapp .
                if [[ ${GIT_BRANCH} == "master" ]]; then
-                   sudo docker tag echoapp:latest echoapp:1.0."${BUILD_NUMBER}"
+                   sudo -S docker tag echoapp:latest echoapp:1.0."${BUILD_NUMBER}"
                fi
                if [[ ${GIT_BRANCH} == "dev" ]]; then
                    sudo docker tag echoapp:latest echoapp:dev-"${GIT_COMMIT}"
