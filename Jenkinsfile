@@ -15,7 +15,8 @@ pipeline {
               branch 'master'
           }
           steps{
-	     sh '/home/danielharsheffer/google-cloud-sdk/bin/docker-credential-gcr configure-docker'
+	     sh 'sudo ln -s /home/danielharsheffer/google-cloud-sdk/bin/docker-credential-gcr /usr/local/bin/'
+	     sh 'docker-credential-gcr configure-docker'
              sh 'sudo -S /home/danielharsheffer/google-cloud-sdk/bin/gcloud docker -- push gcr.io/develeap/echoapp:1.0."${BUILD_NUMBER}"'
              sh 'echo deploy'
           }
