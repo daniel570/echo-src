@@ -12,6 +12,7 @@ pipeline {
   stages {
       stage('Build and Tag'){
           steps{
+	   sh 'echo $(whoami)'
            sh '''
                docker build -t echoapp .
                if [[ ${GIT_BRANCH} == "master" ]]; then
